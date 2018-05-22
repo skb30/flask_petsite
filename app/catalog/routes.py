@@ -6,7 +6,7 @@ from app import db
 from app.catalog.models import Book, Publication
 from flask import render_template, flash, request, redirect, url_for
 from flask_login import login_required
-from app.catalog.forms import EditBookForm
+from app.catalog.forms import EditBookForm, CreateBookForm
 
 
 @main.route('/')
@@ -58,3 +58,25 @@ def edit_book(book_id):
         return redirect(url_for('main.display_books'))
     # get request
     return  render_template('edit_book.html', form=form)
+
+@main.route('/create/book/<pub_id>', methods=['GET', 'POST'])
+@login_required
+def create_book(pub_id):
+    # create the form
+    form = CreateBookForm()
+    # update the form with the pub id
+    form.pub_id.data = pub_id
+
+    # collect the data from the form - post request
+    if form.validate_on_submit():
+        book = Book(title=form.title.data, author=form.author.data, avg_rating=form.avg_rating.data,
+                format=form.book_format.data, image=form.img_url.data, num_pages=form.num_pages.data,
+                pub_id=form.pub_id.data)
+
+        db.session.add(book)
+        db.session.commit()
+        msg = 'book added successfully'
+        flash(msg)
+        return redirect(url_for('main.display_books'))
+    # get request
+    return  render_template('create_book.html', form=form, pub_id=pub_id)

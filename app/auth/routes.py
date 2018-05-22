@@ -45,6 +45,11 @@ def register_user():
     return render_template('registration.html', form=form)
 
 
+@at.app_errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
+
+
 @at.route('/login', methods=['GET', 'POST'])
 def do_the_login():
 

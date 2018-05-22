@@ -1,10 +1,10 @@
 from app import create_app, db
 from app.auth.models import User
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
 
     # use our app factory to create the app
-    flask_app = create_app('dev')
+    flask_app = create_app('prod')
 
 
     # tell flask to use the current app. remember with this scalable arch
