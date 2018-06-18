@@ -6,7 +6,7 @@
                 {% for pet in pets %}
                 <div class="col-md-4">
                     <h4> {{ pet.name  }} </h4>
-                    <img src="../../static/img/{{ pet.name }}.jpg" alt="Book-img" height="200" width="250" class="img-rounded">
+                    <img src="../../static/img/{{ pet.name }}.jpg" alt="Book-img" height="200" width="200" class="img-rounded">
                     <p> Owner: {{ pet.owner }} </p>
                     <p> Contact Number: {{ pet.phone }} </p>
                     <p> Breed: {{ pet.breed }} </p>
@@ -20,8 +20,8 @@
                     <p> Rating: {{ pet.rating }} </p>
 
                     <span class="label label-success"><a href="{{ url_for('pets.create_pet') }}" style="color: floralwhite"> create </a> </span>
-                    <span class="label label-primary"><a href="{{ url_for('pets.create_pet') }}" style="color: floralwhite"> edit </a> </span>
-                    <span class="label label-info"><a href="{{ url_for('pets.delete_pet', pet_id=pet.pet_id) }}" style="color: floralwhite"> delete </a> </span>
+                    <span class="label label-primary"><a href="{{ url_for('pets.edit_pet', pet_id=pet.id) }}" style="color: floralwhite"> edit </a> </span>
+                    <span class="label label-info"><a href="{{ url_for('pets.delete_pet', pet_id=pet.id) }}" style="color: floralwhite"> delete </a> </span>
                 </div>
             {% endfor %}
             </div>

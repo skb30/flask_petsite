@@ -6,7 +6,7 @@ from app.pet_site import pets
 from app import db
 from flask_login import login_user, logout_user, login_required, current_user
 from flask import render_template, flash, request, redirect, url_for
-from app.pet_site.forms import CreatePetForm
+from app.pet_site.forms import CreatePetForm, EditPetForm
 from datetime import date
 
 @pets.route('/pet_site')
@@ -72,3 +72,27 @@ def create_pet():
         return redirect(url_for('pets.display_home'))
     # get request
     return  render_template('register_pet.html', form=form)
+
+@pets.route('/pet_site/edit/<pet_id>', methods=['GET','POST'])
+@login_required
+def edit_pet(pet_id):
+    pet = Pet.query.get(pet_id)
+    form = EditPetForm(obj=pet)
+    # post request
+    if form.validate_on_submit():
+        pet.owner = form.owner.data
+        pet.name = form.name.data
+        pet.breed = form.breed.data
+        pet.rating = form.rating.data
+
+        try:
+
+            db.session.add(pet)
+            db.session.commit()
+        except:
+            msg = 'Unable to DB commit! '
+        msg = 'pet edited successfully'
+        flash(msg)
+        return redirect(url_for('pets.display_pets'))
+    # get request
+    return  render_template('edit_pet.html', form=form)

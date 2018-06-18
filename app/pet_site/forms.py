@@ -28,3 +28,11 @@ class CreatePetForm(FlaskForm):
 
 class SimpleForm(FlaskForm):
     example = RadioField('Label', choices=[('value','description'),('value_two','whatever')])
+
+class EditPetForm(FlaskForm):
+    owner = StringField('Owner Name', validators=[DataRequired()])
+    phone = StringField('Phone', validators=[DataRequired()])
+    name = StringField('Pet Name', validators=[DataRequired()])
+    breed = StringField('Breed', validators=[DataRequired()])
+    rating = FloatField('Rating', validators=[DataRequired()])
+    submit      = SubmitField('Update')

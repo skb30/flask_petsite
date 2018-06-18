@@ -54,3 +54,4 @@ class Pet(db.Model):
 
     def __repr__(self):
         return '{} by {}'.format(self.name, self.register_date)
+
