@@ -8,7 +8,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 from flask import render_template, flash, request, redirect, url_for
 from app.pet_site.forms import CreatePetForm, EditPetForm
 from datetime import date
-
+@pets.route('/')
 @pets.route('/pet_site')
 def display_home():
     return render_template('home.html')
