@@ -6,6 +6,10 @@ footer{ position: absolute; width: 100%; left:0 ;bottom: 0; height: 40px }
 a h3 {position: relative; left: 10%}
 span {margin: 2px}
 
+.h3-styles {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+}
 
 .navbar-inverse { height: 5%; }
 .books {padding: 25px; position: relative; left: 5%; width: 80%}
@@ -20,11 +24,3 @@ span {margin: 2px}
 
 
 
-
-
-
-
-
-/* font-family: 'IBM Plex Mono', monospace;
-font-family: 'Sansita', sans-serif;
-*/

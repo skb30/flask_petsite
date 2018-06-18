@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h4 style="...">Pet Profile Form </h4>
+        <h3> Register your pet </h3>
+
+        {{ form.hidden_tag() }}
+        {{ wtf.quick_form(form) }}
+        <hr>
+
+    </div>
+{{super()}}
+{% endblock content %}

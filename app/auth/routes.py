@@ -2,7 +2,6 @@ from flask import render_template, request, flash, redirect, url_for
 from flask_login import login_user, logout_user, login_required, current_user
 from app.auth.forms import RegistrationForm
 from app.auth import authentication as at
-from app.catalog import main
 from app.auth.models import User
 from app.auth.forms import LoginForm
 
@@ -13,7 +12,7 @@ def register_user():
 
     if current_user.is_authenticated:
         flash('you are already logged-in')
-        return redirect(url_for('main.display_books'))
+        return redirect(url_for('pets.display_home'))
     # first time  get request these values are set to none
     name = None
     email = None
@@ -55,7 +54,7 @@ def do_the_login():
 
     if current_user.is_authenticated:
         flash('you are already logged-in')
-        return redirect(url_for('main.display_books'))
+        return redirect(url_for('pets.display_home'))
 
     # if its a get request then display the login form
     form = LoginForm() # form will be passed to render_template
@@ -71,7 +70,7 @@ def do_the_login():
 
         # flask login mgr method for updating session object
         login_user(user, form.stay_loggedin.data) # check-box on the form 'stay logged in'
-        return redirect(url_for('main.display_books'))
+        return redirect(url_for('pets.display_home'))
 
     return  render_template('login.html', form=form)
 
@@ -79,4 +78,4 @@ def do_the_login():
 @login_required
 def log_out_user():
     logout_user()
-    return redirect(url_for('main.display_books'))
+    return redirect(url_for('pets.display_home'))

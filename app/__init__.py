@@ -41,11 +41,15 @@ def create_app(config_type):
     db.init_app(app) # bind database to flask
 
     # tell Flask we're using a blueprint. note: main is defined in catalog/__init__.py package
-    from app.catalog import main
-    app.register_blueprint(main) # register the blueprint
+    # from app.catalog import main
+    # app.register_blueprint(main) # register the blueprint
     # register the auth blueprint
     from app.auth import authentication
     app.register_blueprint(authentication)
+
+    # register the pets blueprint
+    from app.pet_site import pets
+    app.register_blueprint(pets)
 
     return app
 

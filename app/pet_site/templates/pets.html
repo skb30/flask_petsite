@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+    {% block content %}
+        <div class="container books">
+
+            <div class="row">
+                {% for pet in pets %}
+                <div class="col-md-4">
+                    <h4> {{ pet.name  }} </h4>
+                    <img src="../../static/img/{{ pet.name }}.jpg" alt="Book-img" height="200" width="250" class="img-rounded">
+                    <p> Owner: {{ pet.owner }} </p>
+                    <p> Contact Number: {{ pet.phone }} </p>
+                    <p> Breed: {{ pet.breed }} </p>
+                    <p> Vet Info: {{ pet.vetinfo }} </p>
+                    <p> Sex: {{ pet.sex }} </p>
+                    <p> Neutered/Spade: {{ pet.neutered }} </p>
+                    <p> Feeding Instructions: {{ pet.feeding }} </p>
+                    <p> Exercise Instructions: {{ pet.exercise }} </p>
+                    <p> Age: {{ pet.age }} </p>
+                    <p> Notes: {{ pet.notes }} </p>
+                    <p> Rating: {{ pet.rating }} </p>
+
+                    <span class="label label-success"><a href="{{ url_for('pets.create_pet') }}" style="color: floralwhite"> create </a> </span>
+                    <span class="label label-primary"><a href="{{ url_for('pets.create_pet') }}" style="color: floralwhite"> edit </a> </span>
+                    <span class="label label-info"><a href="{{ url_for('pets.delete_pet', pet_id=pet.pet_id) }}" style="color: floralwhite"> delete </a> </span>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    {% endblock content %}

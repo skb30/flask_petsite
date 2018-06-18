@@ -5,6 +5,10 @@ ul { position: relative; top: 25px; right: 7%;}
 footer{ position: absolute; width: 100%; left:0 ;bottom: 0; height: 40px }
 a h3 {position: relative; left: 10%}
 span {margin: 2px}
+.h3-styles {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+}
 
 
 .navbar-inverse { height: 5%; }
