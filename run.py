@@ -2,7 +2,7 @@ from app import create_app, db
 from app.auth.models import User
 from sqlalchemy import exc
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
 
     # use our app factory to create the app
     flask_app = create_app('prod')
