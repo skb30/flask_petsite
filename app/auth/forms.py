@@ -16,9 +16,9 @@ def check_email(form, field):
 
 # inherits FlaskForm
 class RegistrationForm(FlaskForm):
-    name = StringField('Name ', validators=[DataRequired(),Length(3,15, message='between 3 to 15 characters')])
+    name = StringField('Name ', validators=[DataRequired(),Length(3,40, message='between 3 to 40 characters')])
     email = StringField("E-mail", validators=[DataRequired(), Email(), check_email])
-    password = PasswordField('Password', validators=[DataRequired(), Length(5), EqualTo('confirm', message='password must match')])
+    password = PasswordField('Password', validators=[DataRequired(), Length(5), EqualTo('confirm', message='Password must match')])
     confirm = PasswordField('Confirm',validators=[DataRequired()])
 
     submit =SubmitField('Register')

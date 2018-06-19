@@ -84,6 +84,7 @@ def edit_pet(pet_id):
         pet.name = form.name.data
         pet.breed = form.breed.data
         pet.rating = form.rating.data
+        pet.notes = form.notes.data
 
         try:
 

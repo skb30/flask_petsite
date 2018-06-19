@@ -34,5 +34,6 @@ class EditPetForm(FlaskForm):
     phone = StringField('Phone', validators=[DataRequired()])
     name = StringField('Pet Name', validators=[DataRequired()])
     breed = StringField('Breed', validators=[DataRequired()])
+    notes = StringField('Notes', validators=[DataRequired()])
     rating = FloatField('Rating', validators=[DataRequired()])
     submit      = SubmitField('Update')

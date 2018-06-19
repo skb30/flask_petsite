@@ -37,6 +37,7 @@
                   <img src="../../static/img/wolf-153648.svg"alt="paw-image" height="100" width="90" class="img-rounded">
                     <ul class="nav navbar-nav pull-right">
                         <li><a href="{{ url_for('pets.display_home') }}">Home</a> </li>
+                        <li><a href="{{ url_for('pets.display_pets') }}"> Our Dogs</a> </li>
 
                         <li><a href="{{ url_for('authentication.register_user') }}">SignUp</a></li>
                         <li>{% if current_user.is_authenticated %}

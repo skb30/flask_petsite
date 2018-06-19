@@ -10,7 +10,24 @@ span {margin: 2px}
     font-family: 'IBM Plex Mono', monospace;
     font-size: 13px;
 }
+.special {
 
+  border-color: #000;
+  border-width: 1px;
+  border-style:double;
+  /* border-bottom-style: solid; */
+  /* border-top-style: solid; */
+  background-color: #ccf;
+  padding: 25px;
+  padding-left: 150px;
+  margin: 30px;
+  margin-right: 200px;
+  /* background-image: url(../images/Large_Rose_Images/Calpoly_large.jpgredroseT.gif); */
+  /* background-image: url(../images/Large_Rose_Images/Love-Knot_Large.jpg); */
+  background-image: url(../../static/img/home-page.good.jpg);
+  background-repeat: no-repeat;
+
+}
 .navbar-inverse { height: 5%; }
 .books {padding: 25px; position: relative; left: 5%; width: 80%}
 .publisher {padding: 25px; position: relative; left: 40px }

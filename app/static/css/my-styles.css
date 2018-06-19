@@ -21,7 +21,18 @@ span {margin: 2px}
 .form-group {width: 40%}
 .login-msg{position: relative; left: 48px}
 
+.special {
 
+  border-color: #000;
+  border-width: 1px;
+  border-style:double;
+  /* border-bottom-style: solid; */
+  /* border-top-style: solid; */
+
+  background-image: url(../../static/img/home-page-good.jpg);
+  background-repeat: no-repeat;
+
+}
 
 
 
