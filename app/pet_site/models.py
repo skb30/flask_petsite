@@ -38,7 +38,7 @@ class Pet(db.Model):
                  feeding,
                  exercise,
                  notes,
-                 dob): # class constructor
+                 birthdate): # class constructor
         self.owner = owner
         self.phone = phone
         self.name = name
@@ -49,7 +49,7 @@ class Pet(db.Model):
         self.feeding = feeding
         self.exercise = exercise
         self.notes = notes
-        self.birthdate = dob
+        self.birthdate = birthdate
         self.rating = 0.0
 
     def __repr__(self):

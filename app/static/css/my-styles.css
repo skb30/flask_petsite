@@ -5,11 +5,15 @@ ul { position: relative; top: 25px; right: 7%;}
 footer{ position: absolute; width: 100%; left:0 ;bottom: 0; height: 40px }
 a h3 {position: relative; left: 10%}
 span {margin: 2px}
-.h3-styles {
+.ibm {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 20px;
 }
+.home-img {
+    border-radius: 25px;
+    float: left;
 
+}
 
 .navbar-inverse { height: 5%; }
 .books {padding: 25px; position: relative; left: 5%; width: 80%}
@@ -26,19 +30,64 @@ span {margin: 2px}
   border-color: #000;
   border-width: 1px;
   border-style:double;
-  /* border-bottom-style: solid; */
-  /* border-top-style: solid; */
+  border-bottom-style: solid;
+  border-top-style: solid;
 
   background-image: url(../../static/img/home-page-good.jpg);
   background-repeat: no-repeat;
 
 }
+p.home {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-color: #3a3a3a;
 
+}
+img.center {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   border-radius:25px;
+}
 
+div.relative {
+    float: center;
+    width: 100%;
+    /*
+    margin-left: 10px;
+    font-size: 12px;
+    height:625px; */
+    overflow:auto;
 
+}
+.btn-primary {
+  background: #4285f4;
+  border: 1px solid #1266f1;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.23px;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
 
-
-
+.btn-secondary {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  color: #3372df;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.23px;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
 
 /* font-family: 'IBM Plex Mono', monospace;
 font-family: 'Sansita', sans-serif;

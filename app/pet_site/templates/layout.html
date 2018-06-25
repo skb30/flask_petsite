@@ -4,10 +4,11 @@
 <html lang="en">
 
 {% block head %}
-
+{% set site_name = "Gianna's Dog House" %}
     <head>
         <meta charset="UTF-8">
-        <title>My Dog House</title>
+        <title>{{ site_name }}</title>
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet"
               href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -16,6 +17,7 @@
         <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Sansita" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet'>
         <link rel="stylesheet" href="{{ url_for('static', filename = 'css/my-styles.css') }}">
+
 
     </head>
 {% endblock head %}
@@ -30,11 +32,9 @@
             <!--<nav class="navbar navbar-inverse">-->
             <nav class="navbar navbar-inverse">
                 <div class="container">
-                  <img src="../../static/img/wolf-153648.svg"alt="paw-image" height="100" width="90" class="img-rounded">
                   <a class="navbar navbar-text" href="{{ url_for('pets.display_pets') }}">
-                      <h3 class="title">The Dog House</h3>
+                      <h3 class="title">Gianna's Dog House</h3>
                   </a>
-                  <img src="../../static/img/wolf-153648.svg"alt="paw-image" height="100" width="90" class="img-rounded">
                     <ul class="nav navbar-nav pull-right">
                         <li><a href="{{ url_for('pets.display_home') }}">Home</a> </li>
                         <li><a href="{{ url_for('pets.display_pets') }}"> Our Dogs</a> </li>
@@ -88,7 +88,7 @@
             <footer>
                 <div class="container ftr">
                     <hr>
-                    <p class="text-center small"> The Dog House</p>
+                    <p class="text-center small"> Gianna's Dog House</p>
                 </div>
             </footer>
         {% endblock footer %}

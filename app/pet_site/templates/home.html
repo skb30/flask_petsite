@@ -1,10 +1,22 @@
 {% extends 'layout.html' %}
     {% block content %}
-        <div class="container book">
+        <div class="container">
 
-            <h2> Welcome to the Dog House </h2>
-            <h3> At the Dog House you can be assured your dog will get the best personalized attention.</h3>
-            <img src="../../static/img/home-page-14.jpg" alt="home-img" class="img-rounded">
-            <br>
+            <h2 class="text-center large"> Welcome to {{ site_name }} </h2>
+            <img style="border-radius: 35px; float: left; padding-right: 1em;" height="200" width="200" src="../../static/img/Gianna.jpg" alt="home-img" >
+            <p class="home">
+                {{ site_name }} specializes in senior care for dogs. We know that seniors need
+                a little more personal attention and a stress free environment.
+                At {{ site_name }} you can be assured your pet will get the best personalized attention and will never be
+                alone.
+             </p>
+
+            <br><br><br><br>
+            <a href="{{ url_for('authentication.register_user') }}" class="btn-primary">Sign Up</a>
+            <a href="{{ url_for('pets.display_pets') }}" class="btn-secondary">Learn More</a>
+
         </div>
+        <br>
+        <div>
+
     {% endblock content %}

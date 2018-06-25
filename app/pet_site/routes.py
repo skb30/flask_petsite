@@ -4,14 +4,18 @@
 from app.pet_site.models import Pet
 from app.pet_site import pets
 from app import db
-from flask_login import login_user, logout_user, login_required, current_user
+from flask_login import login_required
 from flask import render_template, flash, request, redirect, url_for
 from app.pet_site.forms import CreatePetForm, EditPetForm
+from sqlalchemy import exc
 from datetime import date
+
+site_name = "Gianna's Dog House"
+
 @pets.route('/')
 @pets.route('/pet_site')
 def display_home():
-    return render_template('home.html')
+    return render_template('home.html', site_name=site_name)
 
 
 @pets.route('/pet_site/delete/<pet_id>', methods=['GET','POST'])
@@ -25,7 +29,7 @@ def delete_pet(pet_id):
         flash(msg)
         return redirect(url_for('pets.display_pets'))
     # get request
-    return  render_template('delete_pet.html', pet=pet, pet_id=pet.id)
+    return  render_template('delete_pet.html', pet=pet, pet_id=pet.id, site_name=site_name)
 
 @pets.route('/pet_site/pets/')
 def display_pets():
@@ -38,7 +42,7 @@ def display_pets():
         born = pet.birthdate
         age = today.year - born.year - ((today.month, today.day) < (born.month, born.day))
         pet.age = age
-    return  render_template('pets.html', pets=pets) # pass pets instance
+    return  render_template('pets.html', pets=pets, site_name=site_name) # pass pets instance
 
 @pets.route('/pet_site/reg_pet', methods=['GET', 'POST'])
 @login_required
@@ -60,18 +64,18 @@ def create_pet():
                 feeding=form.feeding.data,
                 exercise=form.exercise.data,
                 notes=form.notes.data,
-                dob=form.dob.data)
+                birthdate=form.birthdate.data)
         try:
             db.session.add(pet)
             db.session.commit()
-        except:
-            flash("DB -Error")
+        except exc.IntegrityError as i:
+            flash(i)
             return redirect(url_for('pets.display_home'))
         msg = 'Pet registration data added successfully'
         flash(msg)
         return redirect(url_for('pets.display_home'))
     # get request
-    return  render_template('register_pet.html', form=form)
+    return  render_template('register_pet.html', form=form, site_name="Gianna's Dog House")
 
 @pets.route('/pet_site/edit/<pet_id>', methods=['GET','POST'])
 @login_required
@@ -85,15 +89,16 @@ def edit_pet(pet_id):
         pet.breed = form.breed.data
         pet.rating = form.rating.data
         pet.notes = form.notes.data
+        pet.birthdate = form.birthdate.data
 
         try:
 
             db.session.add(pet)
             db.session.commit()
-        except:
+        except exc.IntegrityError:
             msg = 'Unable to DB commit! '
         msg = 'pet edited successfully'
         flash(msg)
         return redirect(url_for('pets.display_pets'))
     # get request
-    return  render_template('edit_pet.html', form=form)
+    return  render_template('edit_pet.html', form=form ,site_name=site_name)
