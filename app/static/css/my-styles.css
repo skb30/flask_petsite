@@ -41,7 +41,8 @@ p.home {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  font-color: #3a3a3a;
+  color: rgb(56,56,56);
+  //color: blue;
 
 }
 img.center {

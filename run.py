@@ -24,10 +24,10 @@ from sqlalchemy import exc
 #                             password='secret')
 #
 #         flask_app.run()
+#
 
 
-
-# use our app factory to create the app
+#use our app factory to create the app
 flask_app = create_app('prod')
 
 
